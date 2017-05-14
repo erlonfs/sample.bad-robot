@@ -10,7 +10,7 @@
 #include <Trade\PositionInfo.mqh>
 #include <Framework\Base.mqh>
 
-class Benchmark : public Base
+class Sample : public Base
 {
    private:
    
