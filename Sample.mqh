@@ -28,7 +28,10 @@ class Sample : public Base
    	
    	   if(!Base::ExecuteBase()) return;
       		
-   		//TODO   
+   		//Logic Here
+   		
+   		Base::ShowInfo();
+   		   
    	};
 };
 
