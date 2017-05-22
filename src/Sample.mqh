@@ -28,10 +28,17 @@ class Sample : public Base
    	
    	   if(!Base::ExecuteBase()) return;
       		
-   		//Logic Here
+         //Logic Here
    		
-   		Base::ShowInfo();
+         Base::ShowInfo();
    		   
    	};
+   	
+      void ExecuteOnTrade(){
+         Base::ExecuteOnTradeBase();
+         
+         //TODO
+         
+      };
 };
 
