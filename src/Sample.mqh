@@ -21,7 +21,7 @@ class Sample : public Base
       
    	void Load() 
    	{
-         //TODO
+         //Logic Here
    	};
    
    	void Execute() {
@@ -29,15 +29,14 @@ class Sample : public Base
    	   if(!Base::ExecuteBase()) return;
       		
          //Logic Here
-   		
-         Base::ShowInfo();
    		   
    	};
    	
       void ExecuteOnTrade(){
+      
          Base::ExecuteOnTradeBase();
          
-         //TODO
+         //Logic Here
          
       };
 };
