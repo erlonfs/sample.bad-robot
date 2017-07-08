@@ -14,21 +14,20 @@ class Sample : public Base
 {
    private:
    
-   	MqlRates _rates[];
-   	ENUM_TIMEFRAMES _period;     
+      MqlRates _rates[];
    
    public:
       
-   	void Load() 
+      void Load() 
    	{
          //Logic Here
    	};
    
    	void Execute() {
    	
-   	   if(!Base::ExecuteBase()) return;
-      		
-         //Logic Here
+         if(!Base::ExecuteBase()) return;
+      	
+         //Logic Here   		
    		   
    	};
    	
