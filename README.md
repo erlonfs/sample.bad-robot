@@ -1,4 +1,4 @@
-# mt5-sample-robot
+# sample.bad-robot
 Este é apenas um exemplo para começar.
 
 

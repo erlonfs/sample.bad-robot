@@ -8,9 +8,9 @@
 
 #include <Trade\Trade.mqh>
 #include <Trade\PositionInfo.mqh>
-#include <Framework\Base.mqh>
+#include <BadRobot.Framework\BadRobot.mqh>
 
-class Sample : public Base
+class Sample : public BadRobot
 {
    private:
    
@@ -25,7 +25,7 @@ class Sample : public Base
    
    	void Execute() {
    	
-         if(!Base::ExecuteBase()) return;
+         if(!BadRobot::ExecuteBase()) return;
       	
          //Logic Here   		
    		   
@@ -33,7 +33,7 @@ class Sample : public Base
    	
       void ExecuteOnTrade(){
       
-         Base::ExecuteOnTradeBase();
+         BadRobot::ExecuteOnTradeBase();
          
          //Logic Here
          
