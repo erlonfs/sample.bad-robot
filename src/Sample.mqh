@@ -12,30 +12,26 @@
 
 class Sample : public BadRobot
 {
-   private:
+      private:
    
       MqlRates _rates[];
    
-   public:
+      public:
       
-      void Load() 
+      void Load()
    	{
-         //Logic Here
+
    	};
    
    	void Execute() {
    	
-         if(!BadRobot::ExecuteBase()) return;
-      	
-         //Logic Here   		
+            if(!BadRobot::ExecuteBase()) return;
    		   
    	};
    	
       void ExecuteOnTrade(){
       
-         BadRobot::ExecuteOnTradeBase();
-         
-         //Logic Here
+            BadRobot::ExecuteOnTradeBase();
          
       };
 };
