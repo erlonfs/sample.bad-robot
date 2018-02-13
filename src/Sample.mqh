@@ -1,9 +1,9 @@
 //+------------------------------------------------------------------+
-//|                                   Copyright 2017, Erlon F. Souza |
+//|                                   Copyright 2018, Erlon F. Souza |
 //|                                       https://github.com/erlonfs |
 //+------------------------------------------------------------------+
 
-#property copyright "Copyright 2017, Erlon F. Souza"
+#property copyright "Copyright 2018, Erlon F. Souza"
 #property link      "https://github.com/erlonfs"
 
 #include <Trade\Trade.mqh>
