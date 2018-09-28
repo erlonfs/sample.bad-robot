@@ -8,9 +8,11 @@
 
 #include <Trade\Trade.mqh>
 #include <Trade\PositionInfo.mqh>
-#include <BadRobot.Framework\BadRobot.mqh>
+#include <BadRobot.Framework\BadRobotUI.mqh>
+#include <BadRobot.Framework\BadRobotPrompt.mqh>
+#include <BadRobot.Framework\BadRobotCore.mqh>
 
-class Sample : public BadRobot
+class Sample : public BadRobotUI
 {
       private:
    
@@ -20,18 +22,18 @@ class Sample : public BadRobot
       
       void Load()
    	{
-
+         LoadBase();
    	};
    
    	void Execute() {
    	
-            if(!BadRobot::ExecuteBase()) return;
+            if(!ExecuteBase()) return;
    		   
    	};
    	
       void ExecuteOnTrade(){
       
-            BadRobot::ExecuteOnTradeBase();
+            ExecuteOnTradeBase();
          
       };
 };
