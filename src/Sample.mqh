@@ -8,33 +8,36 @@
 
 #include <Trade\Trade.mqh>
 #include <Trade\PositionInfo.mqh>
-#include <BadRobot.Framework\BadRobotUI.mqh>
+#include <BadRobot.Framework\BadRobotPad.mqh>
 #include <BadRobot.Framework\BadRobotPrompt.mqh>
-#include <BadRobot.Framework\BadRobotCore.mqh>
 
-class Sample : public BadRobotUI
+class Sample : public BadRobotPad
 {
-      private:
-   
-      MqlRates _rates[];
-   
       public:
       
       void Load()
    	{
          LoadBase();
    	};
-   
-   	void Execute() {
    	
-            if(!ExecuteBase()) return;
-   		   
+      void UnLoad(const int reason)
+   	{
+         UnLoadBase(reason);
+   	};   	
+   
+   	void Execute() 
+   	{   	
+         if(!ExecuteBase()) return;   		   
    	};
    	
-      void ExecuteOnTrade(){
-      
-            ExecuteOnTradeBase();
-         
+      void ExecuteOnTrade()
+      {      
+         ExecuteOnTradeBase();         
       };
+      
+      void ChartEvent(const int id, const long& lparam, const double& dparam, const string& sparam)
+      {
+         ChartEventBase(id,lparam,dparam,sparam);
+      }
 };
 
