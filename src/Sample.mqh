@@ -8,36 +8,84 @@
 
 #include <Trade\Trade.mqh>
 #include <Trade\PositionInfo.mqh>
-#include <BadRobot.Framework\BadRobotPad.mqh>
 #include <BadRobot.Framework\BadRobotPrompt.mqh>
 
-class Sample : public BadRobotPad
+class Sample : public BadRobotPrompt
 {
-      public:
+      private:
       
-      void Load()
-   	{
-         LoadBase();
-   	};
-   	
-      void UnLoad(const int reason)
-   	{
-         UnLoadBase(reason);
-   	};   	
-   
-   	void Execute() 
-   	{   	
-         if(!ExecuteBase()) return;   		   
-   	};
-   	
-      void ExecuteOnTrade()
-      {      
-         ExecuteOnTradeBase();         
-      };
+		int OnInitHandler()
+		{                                                             
+		   //TODO
+		   return INIT_SUCCEEDED;
+		}      
       
-      void ChartEvent(const int id, const long& lparam, const double& dparam, const string& sparam)
+      void OnDeinitHandler(const int reason)
       {
-         ChartEventBase(id,lparam,dparam,sparam);
-      }
+			//TODO
+		}
+		
+		void OnTickHandler()
+		{
+		   //TODO
+		}
+		
+		void OnTimerHandler()
+		{
+		   //TODO
+		}
+		
+		void OnTradeHandler()
+		{
+		   //TODO
+		}
+		
+		void OnTradeTransactionHandler(const MqlTradeTransaction& trans, const MqlTradeRequest& request, const MqlTradeResult& result)
+		{
+			//TODO
+		}
+		
+		double OnTesterHandler()
+		{
+			
+			//TODO
+		
+			return 0;
+		}
+		
+		void OnTesterInitHandler()
+		{
+			//TODO
+		}
+		
+		void OnTesterPassHandler()
+		{
+			//TODO
+		}
+		
+		void OnTesterDeinitHandler()
+		{
+			//TODO
+		}
+		
+		void OnBookEventHandler(const string& symbol)
+		{
+			//TODO
+		}
+		
+		void OnChartEventHandler(const int id, const long& lparam, const double& dparam, const string& sparam)
+		{
+		   //TODO
+		}
+		
+		void OnManagePositionHandler()
+		{
+			//TODO
+		}
+		
+		void OnShowInfoHandler()
+		{
+			//TODO
+		}		
 };
 

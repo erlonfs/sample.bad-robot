@@ -73,7 +73,10 @@ input ENUM_TIMEFRAMES      Periodo = PERIOD_CURRENT;//Período da estratégia
 Sample _ea;
 
 int OnInit()
-  {                  
+  {         
+  	
+   _ea = new Sample();
+           
    //Definições Básicas  
    _ea.SetSymbol(_Symbol);
    _ea.SetHoraInicio(HoraInicio);
@@ -132,25 +135,61 @@ int OnInit()
    _ea.SetPeriod(Periodo);   
    
    //Load Expert
- 	_ea.Load();
- 	 	  
-   return(INIT_SUCCEEDED);
+ 	return _ea.OnInit(); 	 	  
 
 }
 
-void OnDeinit(const int reason){
-	_ea.UnLoad(reason);
+void OnDeinit(const int reason)
+{
+	_ea.OnDeinit(reason);
 }
 
-void OnTick(){                                                             
-   _ea.Execute();  
+void OnTick()
+{
+   _ea.OnTick();  
 }
 
-void OnTrade(){
-   _ea.ExecuteOnTrade();
+void OnTimer()
+{
+   _ea.OnTimer();
+}
+
+void OnTrade()
+{
+   _ea.OnTrade();
+}
+
+void OnTradeTransaction(const MqlTradeTransaction& trans, const MqlTradeRequest& request, const MqlTradeResult& result)
+{
+	_ea.OnTradeTransaction(trans, request, result);
+}
+
+double OnTester()
+{
+	return _ea.OnTester();
+}
+
+void OnTesterInit()
+{
+	_ea.OnTesterInit();
+}
+
+void OnTesterPass()
+{
+	_ea.OnTesterPass();
+}
+
+void OnTesterDeinit()
+{
+	_ea.OnTesterDeinit();
+}
+
+void OnBookEvent(const string& symbol)
+{
+	_ea.OnBookEvent(symbol);
 }
 
 void OnChartEvent(const int id, const long& lparam, const double& dparam, const string& sparam)
 {
-   _ea.ChartEvent(id, lparam, dparam, sparam);   
+   _ea.OnChartEvent(id, lparam, dparam, sparam);   
 }
