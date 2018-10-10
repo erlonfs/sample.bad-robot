@@ -3,14 +3,14 @@
 //|                                       https://github.com/erlonfs |
 //+------------------------------------------------------------------+
 
-#define   robot_name       "SAMPLE"
-#define   robot_version    "1.1.1"
+#define   robot_name        "SAMPLE"
+#define   robot_version     "1.1.1"
 
-#property copyright        "Copyright 2018, Bad Robot"
-#property link             "https://github.com/erlonfs"
-#property version       	robot_version
-#property description   	"Descrição aqui...\n\n\nBons trades!\n\nEquipe BAD ROBOT.\nerlon.efs@gmail.com"
-#property icon             "sample.ico" 
+#property copyright         "Copyright 2018, Bad Robot"
+#property link              "https://github.com/erlonfs"
+#property version       	  robot_version
+#property description   	  "Descrição aqui...\n\n\nBons trades!\n\nEquipe BAD ROBOT.\nerlon.efs@gmail.com"
+#property icon              "sample.ico" 
 
 #include <..\Experts\sample.bad-robot\src\Sample.mqh>
 #include <BadRobot.Framework\Enum.mqh>
@@ -21,7 +21,7 @@ input string               HoraFim="00:00";//Hora de término de execução da e
 input string               HoraInicioIntervalo="00:00";//Hora de início intervalo de execução da estratégia
 input string               HoraFimIntervalo="00:00";//Hora de término intervalo de execução da estratégia
 input ENUM_LOGIC           FecharPosition=0;//Fechar posições ao término de horario de execução?
-input int                  Volume=0; //Volume
+input double               Volume=0; //Volume
 input ENUM_LAST_PRICE_TYPE TipoUltimoPreco=0;//Tipo de referência do ultimo preço
 input int                  Spread = 0;//Spread para entrada na operação em ticks
 
@@ -73,10 +73,7 @@ input ENUM_TIMEFRAMES      Periodo = PERIOD_CURRENT;//Período da estratégia
 Sample _ea;
 
 int OnInit()
-  {         
-  	
-   _ea = new Sample();
-           
+{         
    //Definições Básicas  
    _ea.SetSymbol(_Symbol);
    _ea.SetHoraInicio(HoraInicio);

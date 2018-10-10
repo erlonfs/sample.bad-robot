@@ -20,8 +20,8 @@ class Sample : public BadRobotPrompt
 		   return INIT_SUCCEEDED;
 		}      
       
-      void OnDeinitHandler(const int reason)
-      {
+      	void OnDeinitHandler(const int reason)
+      	{
 			//TODO
 		}
 		
@@ -81,11 +81,6 @@ class Sample : public BadRobotPrompt
 		void OnManagePositionHandler()
 		{
 			//TODO
-		}
-		
-		void OnShowInfoHandler()
-		{
-			//TODO
-		}		
+		}				
 };
 
