@@ -20,14 +20,32 @@ class Sample : public BadRobotPrompt
 		   return INIT_SUCCEEDED;
 		}      
       
-      	void OnDeinitHandler(const int reason)
-      	{
+      void OnDeinitHandler(const int reason)
+      {
 			//TODO
 		}
 		
 		void OnTickHandler()
 		{
 		   //TODO
+		   
+		   if(IsNewCandle())
+         {                
+             double number = MathRand();
+             
+             if(MathMod(number, 2.0) ==  0)
+             {
+                 //Buy();
+             }
+             else
+             {
+                 //Sell();
+             }     
+             
+             Buy();
+             Sell();       
+             
+         }
 		}
 		
 		void OnTimerHandler()

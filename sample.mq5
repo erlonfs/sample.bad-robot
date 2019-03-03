@@ -60,13 +60,25 @@ input int                  SegundaParcialInicio=0;//Valor de inicio da 2ª saíd
 input double               TerceiraParcialVolume=0;//Volume da 3ª saída parcial
 input int                  TerceiraParcialInicio=0;//Valor de inicio da 3ª saída parcial em ticks
 
-input string               Secao8 = "###############";//### Expert Control ###
+input string               Secao8 = "###############";//### Indicadores ###
+input string               SubSecao1 = "###############";//>> Cruzamento de Medias Moveis >>
+input ENUM_LOGIC           AtivarCruzamentoDeMedias=0;//Ativar cruzamento de médias?
+input int                  Media1=0;//Média Rapida
+input int                  Media2=0;//Média Intermediaria
+input int                  Media3=0;//Média Lenta
+input string               SubSecao2 = "###############";//>> MACD >>
+input ENUM_LOGIC           AtivarMACD=0;//Ativar MACD?
+input int                  MACDMediaRapida=0;//Média Rapida
+input int                  MACDMediaLenta=0;//Média Lenta
+input int                  Sinal=0;//Sinal
+
+input string               Secao9 = "###############";//### Expert Control ###
 input int                  NumeroMagico=0; //O número mágico é utilizado para diferenciar ordens de outros robôs
 
-input string               Secao9 = "###############";//### Notificações ###
+input string               Secao10 = "###############";//### Notificações ###
 input ENUM_LOGIC           IsNotificacoesApp=0;//Ativar notificações no app do metatrader 5?
 
-input string               Secao10 = "###############";//### Config de Estratégia ###
+input string               Secao11 = "###############";//### Config de Estratégia ###
 input ENUM_TIMEFRAMES      Periodo = PERIOD_CURRENT;//Período da estratégia
 
 //variaveis
@@ -118,7 +130,19 @@ int OnInit()
    _ea.SetSegundaParcialVolume(SegundaParcialVolume);
    _ea.SetSegundaParcialInicio(SegundaParcialInicio);   
    _ea.SetTerceiraParcialVolume(TerceiraParcialVolume);
-   _ea.SetTerceiraParcialInicio(TerceiraParcialInicio);  
+   _ea.SetTerceiraParcialInicio(TerceiraParcialInicio); 
+   
+   //Indicadores > Cruzamento de Medias Moveis   
+   _ea.SetHasIndicatorCrossAveragess(AtivarCruzamentoDeMedias);
+   _ea.SetEMA1Period(Media1);
+   _ea.SetEMA2Period(Media2); 
+   _ea.SetEMA3Period(Media3); 
+   
+   //Indicadores > MACD
+   _ea.SetHasIndicatorMACD(AtivarMACD);
+   _ea.SetMACDFastPeriod(MACDMediaRapida);
+   _ea.SetMACDSlowPeriod(MACDMediaLenta);
+   _ea.SetMACDSinalPeriod(Sinal);
    
    //Expert Control
    _ea.SetNumberMagic(NumeroMagico);
