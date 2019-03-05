@@ -61,16 +61,48 @@ input double               TerceiraParcialVolume=0;//Volume da 3ª saída parcia
 input int                  TerceiraParcialInicio=0;//Valor de inicio da 3ª saída parcial em ticks
 
 input string               Secao8 = "###############";//### Indicadores ###
+
 input string               SubSecao1 = "###############";//>> Cruzamento de Medias Moveis >>
 input ENUM_LOGIC           AtivarCruzamentoDeMedias=0;//Ativar cruzamento de médias?
 input int                  Media1=0;//Média Rapida
 input int                  Media2=0;//Média Intermediaria
 input int                  Media3=0;//Média Lenta
+input ENUM_MA_METHOD       MediaMethod=MODE_EMA;//Tipo de Suavização
+input ENUM_APPLIED_PRICE   MediaAppliedPrice=PRICE_CLOSE;//Tipo de Preço ou de Manipulador
+ 
 input string               SubSecao2 = "###############";//>> MACD >>
 input ENUM_LOGIC           AtivarMACD=0;//Ativar MACD?
 input int                  MACDMediaRapida=0;//Média Rapida
 input int                  MACDMediaLenta=0;//Média Lenta
 input int                  Sinal=0;//Sinal
+input ENUM_APPLIED_PRICE   MACDAppliedPrice=PRICE_CLOSE;//Tipo de Preço ou de Manipulador 
+
+input string               SubSecao3 = "###############";//>> RSI >>
+input ENUM_LOGIC           AtivarRSI=0;//Ativar RSI?
+input int                  RSIPeriodo=0;//Período
+input double               RSISinalCompra=0;//Sinal de compra
+input double               RSISinalVenda=0;//Sinal de venda
+input ENUM_APPLIED_PRICE   RSIAppliedPrice=PRICE_CLOSE;//Tipo de Preço ou de Manipulador 
+
+input string               SubSecao4 = "###############";//>> SAR >>
+input ENUM_LOGIC           AtivarSAR=0;//Ativar SAR?
+input double               SARStep=0;//Incrementar Passo
+input double               SARMaximum=0;//Máximo Nível de Parada
+
+input string               SubSecao5 = "###############";//>> Bands Bollinger >>
+input ENUM_LOGIC           AtivarBandsBollinger=0;//Ativar Bands Bollinger?
+input int                  BandsBollingerPeriod=0;//Período Para o Cálculo da Média da Linha 
+input int                  BandsBollingerShift=0;//Deslocamento Horizontal
+input int                  BandsBollingerDeviation=0;//Número de Desvios Padrão 
+input ENUM_APPLIED_PRICE   BandsBollingerAppliedPrice=PRICE_CLOSE;//Tipo de Preço ou de Manipulador 
+
+input string               SubSecao6 = "###############";//>> Envelopes >>
+input ENUM_LOGIC           AtivarEnvelopes=0;//Ativar Envelopes?
+input int                  EnvelopesPeriod=0;//Período Para o Cálculo da Linha  da Média Móvel
+input int                  EnvelopesShift=0;//Deslocamento Horizontal
+input ENUM_MA_METHOD       EnvelopesMethod=MODE_EMA;//Tipo de Suavização 
+input ENUM_APPLIED_PRICE   EnvelopesAppliedPrice=PRICE_CLOSE;//Tipo de Preço ou de Manipulador 
+input double               EnvelopesDeviation=0;//Desvio dos Limites da Linha Mediana (Em Percentagens)
 
 input string               Secao9 = "###############";//### Expert Control ###
 input int                  NumeroMagico=0; //O número mágico é utilizado para diferenciar ordens de outros robôs
@@ -137,12 +169,42 @@ int OnInit()
    _ea.SetEMA1Period(Media1);
    _ea.SetEMA2Period(Media2); 
    _ea.SetEMA3Period(Media3); 
+   _ea.SetCrossAveragesAppliedPrice(MediaAppliedPrice);
+   _ea.SetCrossAveragesMethod(MediaMethod);
    
    //Indicadores > MACD
    _ea.SetHasIndicatorMACD(AtivarMACD);
    _ea.SetMACDFastPeriod(MACDMediaRapida);
    _ea.SetMACDSlowPeriod(MACDMediaLenta);
    _ea.SetMACDSinalPeriod(Sinal);
+   _ea.SetMACDAppliedPrice(MACDAppliedPrice);
+   
+   //Indicadores > RSI
+   _ea.SetHasIndicatorRSI(AtivarRSI);
+   _ea.SetRSIPeriod(RSIPeriodo);
+   _ea.SetRSIBuySignal(RSISinalCompra); 
+   _ea.SetRSISellSignal(RSISinalVenda); 
+   _ea.SetRSIAppliedPrice(RSIAppliedPrice);   
+   
+   //Indicadores > SAR
+   _ea.SetHasIndicatorSAR(AtivarSAR);
+   _ea.SetSARStep(SARStep);
+   _ea.SetSARMaximum(SARMaximum); 
+   
+   //Indicadores > Bands Bollinger
+   _ea.SetHasIndicatorBandsBollinger(AtivarBandsBollinger); 
+   _ea.SetBandsBollingerPeriod(BandsBollingerPeriod);
+   _ea.SetBandsBollingerShift(BandsBollingerShift);
+   _ea.SetBandsBollingerDeviation(BandsBollingerDeviation);
+   _ea.SetBandsBollingerAppliedPrice(BandsBollingerAppliedPrice);
+   
+   //Indicadores > Envelopes
+   _ea.SetHasIndicatorEnvelopes(AtivarEnvelopes);  
+   _ea.SetEnvelopesPeriod(EnvelopesPeriod);
+   _ea.SetEnvelopesShift(EnvelopesShift);
+   _ea.SetEnvelopesMethod(EnvelopesMethod);
+   _ea.SetEnvelopesAppliedPrice(EnvelopesAppliedPrice);
+   _ea.SetEnvelopesDeviation(EnvelopesDeviation);
    
    //Expert Control
    _ea.SetNumberMagic(NumeroMagico);

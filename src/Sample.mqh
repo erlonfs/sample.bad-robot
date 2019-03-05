@@ -42,10 +42,13 @@ class Sample : public BadRobotPrompt
                  //Sell();
              }     
              
-             Buy();
-             Sell();       
+                  
              
          }
+         
+          Buy();
+          Sell(); 
+          
 		}
 		
 		void OnTimerHandler()
